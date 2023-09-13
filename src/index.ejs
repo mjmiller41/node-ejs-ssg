@@ -1,0 +1,40 @@
+---
+layout: default
+title: Home
+---
+
+<div class="home-page wrapper">
+  <section class="blog-section">
+    <% if (posts.length > 0) { %>
+    <h2 class="list-heading">Recent Blog Posts</h2>
+    <ul class="list">
+      <% posts.forEach((post, index) => { if (index < 3) { %>
+      <li>
+        <span class="post-meta"><%- longDate(post.date) -%></span>
+        <h3>
+          <a class="list-link" href="<%- post.url -%>"> <%= post.title %> </a>
+        </h3>
+        <% if (site.show_description) { %>
+        <span><%= post.description -%></span>
+        <% } %>
+      </li>
+      <% }}) %>
+    </ul>
+    <% } %>
+  </section>
+  <section class="projects-section">
+    <% if (projects.length > 0) { %>
+    <h2 class="list-heading">Latest Projects</h2>
+    <ul class="list">
+      <% for (const project of limit(projects, 3)) { %>
+      <li>
+        <span class="post-meta"><%- longDate(project.date) %></span>
+        <h3>
+          <a class="post-link" href="/projects"><%- project.title %></a>
+        </h3>
+      </li>
+      <% } %>
+    </ul>
+    <% } %>
+  </section>
+</div>

@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="home wrapper">
+  <% if (page.title) { %>
+  <h1 class="page-heading"><%- page.title %></h1>
+  <% } %> <%- content %> <% if (posts.size > 0) { %>
+  <h2 class="post-list-heading"><%- page.list_title %></h2>
+  <ul class="post-list">
+    <% for (post in posts) { %>
+    <li>
+      <span class="post-meta"><%- longDate(post.date) %></span>
+      <h3>
+        <a class="post-link" href="<%- post.url %>"> <%- post.title %> </a>
+      </h3>
+      <% if (site.show_description) { %> <%- post.description %> <% } %>
+    </li>
+    <% } %>
+  </ul>
+  <% } %>
+</div>

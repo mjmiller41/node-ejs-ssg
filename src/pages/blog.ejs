@@ -1,0 +1,29 @@
+---
+title: Blog
+layout: page
+permalink: /blog
+---
+
+<section class="blog">
+  <h2 class="title">Posts by Category</h2>
+  <ul class="posts">
+    <% for (const category of categories) { %> <% posts = sort(posts, 'date', 'descending') %>
+    <li>
+      <h3 class="category sub-title"><%- category %></h3>
+      <ul>
+        <% for (const post of posts) { %> <% if (post.categories.includes(category)) { %>
+        <li>
+          <a href="<%- post.url %>"><%- post.title %></a>
+          <br />
+          <% if (post.description) { %>
+          <ul>
+            <li><%- post.description %></li>
+          </ul>
+          <% } %>
+        </li>
+        <% }} %>
+      </ul>
+    </li>
+    <% } %>
+  </ul>
+</section>

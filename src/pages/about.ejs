@@ -1,0 +1,29 @@
+---
+layout: page
+title: About
+permalink: /about
+---
+
+<p>
+  I am a student at DeVry University working toward an Associates of Science in Information Technology and
+  Networking. With a GPA of 3.7 I am looking forward to graduating in August of 2023.
+</p>
+<p>
+  I am also participating in the
+  <a href="https://www.pnw.edu/cybersecurity/cwct/" target="_blank"
+    >Cybersecurity Workforce Certification Training</a
+  >
+  program, a certification based national training program for transitioning military, first responders, and
+  other adult trainees. The CWCT prepares students to sit for CompTIA A+, Linux+, Security+, Red Hat Certified
+  System Administrator, Cisco CyberOps Associate, and EC-Council Certified Ethical Hacker and is supported by
+  a National Centers of Academic Excellence in Cybersecurity Grant, housed at the National Security Agency.
+</p>
+<h1>Certifications</h1>
+<div class="certs-wrapper">
+  <% for (const cert of certifications) { %>
+  <div class="cert">
+    <img alt="<%- cert.title %>" src="<%- cert.image %>" />
+    <h4><%- cert.date %></h4>
+  </div>
+  <% } %>
+</div>

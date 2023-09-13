@@ -1,0 +1,37 @@
+[
+  {
+    "title": "CompTIA A+",
+    "date": "August 2023",
+    "image": "/assets/images/certs/logo_aplus.svg"
+  },
+  {
+    "title": "CompTIA Linux+",
+    "date": "August 2023",
+    "image": "/assets/images/certs/logo_linuxplus.png"
+  },
+  {
+    "title": "CompTIA Network+",
+    "date": "August 2023",
+    "image": "/assets/images/certs/logo_networkplus.png"
+  },
+  {
+    "title": "CompTIA Security+",
+    "date": "October 2023",
+    "image": "/assets/images/certs/logo_securityplus.png"
+  },
+  {
+    "title": "Red Hat Certified System Administrator",
+    "date": "August 2023",
+    "image": "/assets/images/certs/logo_rhcsa.png"
+  },
+  {
+    "title": "Cisco CyberOps Associate",
+    "date": "October 2023",
+    "image": "/assets/images/certs/logo_cyberops.png"
+  },
+  {
+    "title": "EC-Council Certified Ethical Hacker",
+    "date": "August 2023",
+    "image": "/assets/images/certs/logo_ceh.png"
+  }
+]

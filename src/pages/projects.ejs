@@ -1,0 +1,44 @@
+---
+layout: page
+title: Projects
+permalink: /projects
+---
+
+<div class="projects-page">
+  <% for (const project of projects) { %> <% if (project.title != "Placeholder") { %>
+  <div class="project-tile">
+    <div class="tile-image">
+      <img class="screenshot" src="/assets/images/<%= project.screenshot %>" alt="<%- project.alt_text %>" />
+    </div>
+    <div class="tile-content">
+      <h3 class="sub-title"><%- project.title %></h3>
+      <hr />
+      <p class="project-description"><%- project.description %></p>
+    </div>
+    <div class="tile-links">
+      <% if (project.repo_url != "") { %>
+      <a class="link-button" href="<%= project.repo_url %>" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon">
+          <use href="/assets/images/svg-icons/brands.svg#github"></use>
+        </svg>
+        <span>Repo</span>
+      </a>
+      <% } %> <% if (project.site_url != "") { %>
+      <a class="link-button" href="<%= project.site_url %>" target="_blank" rel="noopener noreferrer">
+        <svg class="svg-icon">
+          <use href="/assets/images/svg-icons/solid.svg#globe"></use>
+        </svg>
+        <span>Website</span>
+      </a>
+      <% } else if (project.download_file != "") { %>
+      <a class="link-button" href="<%- project.download_file %>" download>
+        <svg class="svg-icon">
+          <use href="/assets/images/svg-icons/solid.svg#file-arrow-down"></use>
+        </svg>
+        <span>PowerPoint</span>
+      </a>
+      <% } %>
+    </div>
+  </div>
+  <% }} %>
+</div>

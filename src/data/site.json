@@ -1,0 +1,17 @@
+{
+  "title": "Michael Joseph Miller",
+  "email": "mjmiller41@pm.me",
+  "author": {
+    "name": "Michael Joseph Miller",
+    "url": "https://mjmiller41.github.io"
+  },
+  "description": "Portfolio and blog website. Built with <a href='https://jekyllrb.com' target='_blank'>Jekyll</a> and <a href='https://github.com' target='_blank'>GitHub</a> Pages",
+  "baseurl": "",
+  "url": "https://mjmiller41.github.io",
+  "logo": "/assets/favicon-32x32.png",
+  "twitter_username": "mjmiller41",
+  "github_username": "mjmiller41",
+  "linkedin_username": "mjmiller41",
+  "date_format": "%B %d, %Y",
+  "show_description": true
+}
