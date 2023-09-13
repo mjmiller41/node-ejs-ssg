@@ -1,8 +1,5 @@
 # Dependency directories
 node_modules/
 
-# Generator output
-docs
-
 # VSCode settings
 .vscode
