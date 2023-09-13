@@ -10,7 +10,7 @@
     "start": "npm run build",
     "dev": "NODE_ENV=dev nodemon server.js",
     "inspect": "NODE_ENV=dev --inspect nodemon",
-    "build": "node generator/build.js"
+    "build": "node generator/buildAll.js"
   },
   "browserslist": [
     "defaults"
