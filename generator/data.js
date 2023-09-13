@@ -1,6 +1,5 @@
 import yaml from 'js-yaml'
-import { readdir } from 'fs/promises'
-import { config } from './config.js'
+import config from './config.js'
 import { fileExt, getDirents, getFileText } from './utils.js'
 
 const parseText = (ext, text) => {
@@ -27,7 +26,7 @@ const getFileData = async (path, name) => {
   const ext = fileExt(name)
 
   if (ext === '.js') {
-    let module = await import(`../${path}/${name}`)
+    const module = await import(`../${path}/${name}`)
     value = module.default
   } else {
     const fileText = await getFileText(path, name)
@@ -35,20 +34,19 @@ const getFileData = async (path, name) => {
   }
 
   if (value) {
-    let data = {}
+    const data = {}
     const key = name.replace(ext, '')
     data[key] = value
     return data
-  } else {
-    return undefined
   }
+  return undefined
 }
 
-const getDataFiles = async (srcDir = '') => {
-  if (!srcDir) srcDir = `${config.srcDir}${config.dataDir}`
-  let fileData = {}
+const getDataFiles = async (srcDir = `${config.srcDir}${config.dataDir}`) => {
+  const fileData = {}
   const dirEnts = await getDirents(srcDir, true)
   if (dirEnts) {
+    // eslint-disable-next-line no-restricted-syntax
     for await (const ent of dirEnts) {
       if (ent.isFile()) {
         const fd = await getFileData(ent.path, ent.name)
@@ -61,4 +59,4 @@ const getDataFiles = async (srcDir = '') => {
   return fileData
 }
 
-export { getDataFiles }
+export default getDataFiles

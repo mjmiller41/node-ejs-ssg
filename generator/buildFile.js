@@ -1,10 +1,10 @@
-import { filters } from './filters.js'
-import { Page } from './Page.js'
-import { Post } from './Post.js'
-import { getDataFiles } from './data.js'
-import { render } from './render.js'
-import { copyAssets } from './assets.js'
-import { copyStyles } from './styles.js'
+import Page from './Page.js'
+import Post from './Post.js'
+import filters from './filters.js'
+import getDataFiles from './data.js'
+import render from './render.js'
+import copyAssets from './copyAssets.js'
+import copyStyles from './copyStyles.js'
 
 const buildFile = async () => {
   // Get pages data
@@ -17,9 +17,9 @@ const buildFile = async () => {
 
   // Consolidate data
   const siteData = {
-    pages: pages,
-    posts: posts,
-    categories: categories,
+    pages,
+    posts,
+    categories,
     ...dataFiles,
     ...filters,
   }
@@ -33,4 +33,4 @@ const buildFile = async () => {
   await copyStyles()
 }
 
-export { buildFile }
+export default buildFile

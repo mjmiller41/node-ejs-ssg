@@ -1,16 +1,13 @@
-import { Dirent } from 'fs'
 import { mkdir, writeFile, readFile, readdir } from 'fs/promises'
 
 const dotIndex = (filename) => {
-  let dotIndex = filename.indexOf('.')
-  // If file has no file extension do not render
-  if (dotIndex == -1) return 0
-  return dotIndex - filename.length
+  const index = filename.indexOf('.')
+  if (index === -1) return 0
+  return index - filename.length
 }
 
 const fileExt = (filename) => {
-  const fileExt = filename.slice(dotIndex(filename))
-  return fileExt === filename ? '' : fileExt
+  return filename.slice(dotIndex(filename))
 }
 
 const getHtmlName = (filename) => {
@@ -22,11 +19,9 @@ const saveFile = async (path, name, data) => {
   try {
     await mkdir(path, { recursive: true })
     await writeFile(`${path}/${name}`, data)
-    console.log(`${name} has been written to ${path}`)
   } catch (error) {
     if (!(error.code === 'EEXIST')) console.error(error)
   }
-  return
 }
 
 const getFileText = async (path, name) => {
@@ -42,18 +37,17 @@ const getFileText = async (path, name) => {
 }
 
 const getDirents = async (path, recursive = false) => {
+  let dirEnts
   try {
-    let dirEnts = await readdir(path, {
+    dirEnts = await readdir(path, {
       withFileTypes: true,
-      recursive: recursive,
+      recursive,
     })
     return dirEnts
   } catch (error) {
     console.error(error)
-    return
   }
+  return dirEnts
 }
-
-const copyFile = () => {}
 
 export { dotIndex, fileExt, getHtmlName, saveFile, getFileText, getDirents }

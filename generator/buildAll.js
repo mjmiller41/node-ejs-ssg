@@ -1,27 +1,24 @@
-import { filters } from './filters.js'
-import { Page } from './Page.js'
-import { Post } from './Post.js'
-import { getDataFiles } from './data.js'
-import { render } from './render.js'
-import { copyAssets } from './assets.js'
-import { copyStyles } from './styles.js'
+import filters from './filters.js'
+import Page from './Page.js'
+import Post from './Post.js'
+import getDataFiles from './data.js'
+import render from './render.js'
+import copyAssets from './copyAssets.js'
+import copyStyles from './copyStyles.js'
 
 const buildAll = async () => {
   // Get pages data
   const pages = await Page.getPages()
   const posts = await Post.getPosts()
-
   const categories = Post.getAllCategories(posts)
-
-  console.log(categories)
 
   const dataFiles = await getDataFiles()
 
   // Consolidate data
   const siteData = {
-    pages: pages,
-    posts: posts,
-    categories: categories,
+    pages,
+    posts,
+    categories,
     ...dataFiles,
     ...filters,
   }
@@ -35,4 +32,6 @@ const buildAll = async () => {
   await copyStyles()
 }
 
-export { buildAll }
+await buildAll()
+
+export default buildAll

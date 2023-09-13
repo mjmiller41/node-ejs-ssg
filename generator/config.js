@@ -1,4 +1,4 @@
-export const config = {
+export default {
   srcDir: './src',
   outDir: './docs',
   postsDir: '/posts',

@@ -1,5 +1,6 @@
-import { Layout } from './Layout.js'
-import { config } from './config.js'
+/* eslint-disable no-restricted-syntax */
+import Layout from './Layout.js'
+import config from './config.js'
 import { getHtmlName, fileExt, getFileText, getDirents } from './utils.js'
 
 class Page extends Layout {
@@ -15,14 +16,14 @@ class Page extends Layout {
     const validExts = ['.html', '.md', '.markdown', '.ejs']
     if (validExts.includes(fileExt(filename)) && filename[0] !== '_') {
       return true
-    } else {
-      return false
     }
+    return false
   }
 
   static async getPage(path, name) {
+    let page
     if (Page.isValidFormat(name)) {
-      const page = new Page(path, name)
+      page = new Page(path, name)
       page.body = await getFileText(page.srcPath, page.srcName)
       page.getFrontMatter()
       if (page.permalink) {
@@ -30,13 +31,13 @@ class Page extends Layout {
       } else {
         page.url = `/${page.outName}`
       }
-      return page
     }
+    return page
   }
 
   static async getPages() {
     const pageDirs = [config.srcDir, `${config.srcDir}${config.pagesDir}`]
-    let pages = []
+    const pages = []
 
     for await (const dir of pageDirs) {
       const dirEnts = await getDirents(dir, false)
@@ -51,4 +52,4 @@ class Page extends Layout {
   }
 }
 
-export { Page }
+export default Page

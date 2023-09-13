@@ -1,5 +1,5 @@
 import fm from 'front-matter'
-import { config } from './config.js'
+import config from './config.js'
 import { getDirents, fileExt, getFileText } from './utils.js'
 
 class Layout {
@@ -14,9 +14,8 @@ class Layout {
   static isValidFormat(filename) {
     if (fileExt(filename) === '.ejs') {
       return true
-    } else {
-      return false
     }
+    return false
   }
 
   getFrontMatter() {
@@ -25,20 +24,22 @@ class Layout {
     Object.assign(this, matter.attributes)
   }
 
-  async getLayout(layoutName) {
-    let dirEnts = await getDirents(`${config.srcDir}${config.layoutDir}`, false)
-    if (dirEnts) {
-      for await (const ent of dirEnts) {
-        if (Layout.isValidFormat(ent.name) && ent.name.includes(layoutName)) {
-          const layout = new Layout(ent.path, ent.name)
-          layout.body = await getFileText(layout.srcPath, layout.srcName)
-          layout.getFrontMatter()
-          return layout
-        }
+  static async getLayout(layoutName) {
+    let layout
+    const dirEnts = await getDirents(
+      `${config.srcDir}${config.layoutDir}`,
+      false
+    )
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const ent of dirEnts) {
+      if (Layout.isValidFormat(ent.name) && ent.name.includes(layoutName)) {
+        layout = new Layout(ent.path, ent.name)
+        layout.body = await getFileText(layout.srcPath, layout.srcName)
+        layout.getFrontMatter()
       }
     }
-    return
+    return layout
   }
 }
 
-export { Layout }
+export default Layout

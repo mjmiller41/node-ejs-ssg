@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang=" en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michael Joseph Miller &mdash; Javascript Closures</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="stylesheet" href="/main.css" />
+  <script src="/assets/scripts/copyCode.js" defer></script>
+</head>
+  <body>
+    <header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+      <img class="logo" src="/assets/favicon-32x32.png" alt="logo icon" />
+      Michael Joseph Miller
+    </a>
+    
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path
+              d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"
+            />
+          </svg>
+        </span>
+      </label>
+      <div class="trigger">
+        <a class="page-link" href="/index.html">Home</a>
+        <a class="page-link" href="/about">About</a>
+        <a class="page-link" href="/blog">Blog</a>
+        <a class="page-link" href="/projects">Projects</a>
+      </div>
+    </nav>
+    
+  </div>
+</header>
+    <main aria-label="Content" class="site-content"><div class="post wrapper" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="page-title" itemprop="name headline">Javascript Closures</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-02-13" itemprop="datePublished">
+        2023-02-13
+      </time>
+      
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">Closures are an essential concept in JavaScript that can make the code easier to understand and maintain. They allow functions to have a private scope and access to variables within the scope. This tutorial will explain the basics of closures, why they are useful, and how to use them in your code.
+
+## What is a closure?
+
+A closure is a function that has access to variables in its outer scope, even after the outer function has returned. The closure has access to the variables in its outer scope, as well as its own scope, which includes any variables declared within it.
+
+A closure is created when a function is defined within another function. The inner function has access to the variables in the outer function's scope, even after the outer function has returned. The closure can be thought of as a combination of the inner function and the environment in which it was created.
+
+## Why are closures useful?
+
+Closures are useful for many reasons, including:
+
+- Encapsulating state: Closures allow you to create private state that cannot be accessed or modified from outside the closure. This is useful for creating objects with private properties or for managing state in a clean and organized way.
+
+- Preserving state: Closures allow you to preserve state between function calls. For example, you can use a closure to keep track of a counter that increments every time a function is called.
+
+- Implementing modules: Closures are a key aspect of the module pattern, which is a way to create modular and reusable code in JavaScript. Modules can have their own private state and methods, which can only be accessed by other code within the same module.
+
+## How to use closures in JavaScript
+
+To use closures in JavaScript, you simply need to define a function within another function. The inner function will have access to the variables in the outer function's scope, even after the outer function has returned.
+
+Here's an example:
+
+```javascript
+function outerFunction(x) {
+  return function innerFunction(y) {
+    return x + y;
+  };
+}
+
+const add5 = outerFunction(5);
+console.log(add5(3)); // 8
+```
+
+In this example, `outerFunction` takes a parameter `x` and returns the inner function `innerFunction`. The inner function takes a parameter `y` and returns the sum of `x` and `y`.
+
+When we call `outerFunction(5)`, it returns the inner function with `x` set to 5. We then assign the returned inner function to a variable `add5`. When we call `add5(3)`, it returns 8, which is the sum of `x` (5) and `y` (3).
+
+Note that the inner function still has access to `x` even after `outerFunction` has returned. This is because the closure has captured the environment in which it was created, including the value of `x`.
+
+## Conclusion
+
+Closures are a powerful and versatile feature in JavaScript that can help you write cleaner, more maintainable code. Whether you're creating objects with private properties, preserving state between function calls, or implementing modules, closures are an essential tool to have in your JavaScript toolbox.</div>
+
+  <a class="u-url" hidden href="posts/javascript_closures.html"></a>
+</div></main>
+    <footer class="site-footer">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+             Michael Joseph Miller 
+          </li>
+          
+          <li><a class="u-email" href="mailto:mjmiller41@pm.me">mjmiller41@pm.me</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  
+  <li>
+    <a href="https://github.com/mjmiller41" target="_blank">
+      <svg class="svg-icon">
+        <use href="/assets/images/svg-icons/brands.svg#github"></use>
+      </svg>
+      <span class="username">github.com/mjmiller41</span>
+    </a>
+  </li>
+   
+  <li>
+    <a href="https://www.linkedin.com/in/mjmiller41" target="_blank">
+      <svg class="svg-icon">
+        <use href="/assets/images/svg-icons/brand"></use>
+      </svg>
+      <span class="username">in/mjmiller41</span>
+    </a>
+  </li>
+   
+  <li>
+    <a href="https://www.twitter.com/mjmiller41" target="_blank">
+      <svg class="svg-icon">
+        <use href="/assets/images/svg-icons/brands.svg#twitter"></use>
+      </svg>
+      <span class="username">&#64;mjmiller41</span>
+    </a>
+  </li>
+  
+</ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Portfolio and blog website. Built with <a href='https://jekyllrb.com' target='_blank'>Jekyll</a> and <a href='https://github.com' target='_blank'>GitHub</a> Pages</p>
+      </div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

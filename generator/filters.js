@@ -30,9 +30,11 @@ const sort = (collection, field = '', direction = 'ascending') => {
   if (!Array.isArray(collection)) return collection
   if (!field && direction === 'ascending') return collection.sort()
   if (!field && direction === 'descending') return collection.reverse()
-  if (field && direction === 'ascending') return collection.sort((a, b) => a[field] - b[field])
-  if (field && direction === 'descending') return collection.sort((a, b) => a[field] - b[field])
+  if (field && direction === 'ascending')
+    return collection.sort((a, b) => a[field] - b[field])
+  if (field && direction === 'descending')
+    return collection.sort((a, b) => a[field] - b[field])
   return collection
 }
 
-export const filters = { longDate, limit, sort }
+export default { longDate, limit, sort }

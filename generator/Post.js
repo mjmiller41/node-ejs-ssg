@@ -1,5 +1,6 @@
-import { config } from './config.js'
-import { Page } from './Page.js'
+/* eslint-disable no-restricted-syntax */
+import config from './config.js'
+import Page from './Page.js'
 import { getDirents, getFileText } from './utils.js'
 
 class Post extends Page {
@@ -19,8 +20,9 @@ class Post extends Page {
   }
 
   static async getPost(path, name) {
+    let post
     if (Post.isValidFormat(name)) {
-      const post = new Post(path, name)
+      post = new Post(path, name)
       post.body = await getFileText(post.srcPath, post.srcName)
       post.getFrontMatter()
       post.getCategories()
@@ -29,13 +31,13 @@ class Post extends Page {
       } else {
         post.url = `posts/${post.outName}`
       }
-      return post
     }
+    return post
   }
 
   static getPosts = async () => {
     const dir = `${config.srcDir}${config.postsDir}`
-    let posts = []
+    const posts = []
     const dirEnts = await getDirents(dir, false)
     if (dirEnts) {
       for await (const ent of dirEnts) {
@@ -48,16 +50,16 @@ class Post extends Page {
   }
 
   static getAllCategories = (posts) => {
-    let categories = []
+    const allCategories = []
     for (const post of posts) {
-      if (post.categories) {
-        console.log(post.categories)
-        const cats = post.categories.filter((cat) => !categories.includes(cat))
-        categories = categories.concat(cats)
+      if (post.categories.length > 0) {
+        for (const category of post.categories) {
+          if (!allCategories.includes(category)) allCategories.push(category)
+        }
       }
     }
-    return categories
+    return allCategories
   }
 }
 
-export { Post }
+export default Post
