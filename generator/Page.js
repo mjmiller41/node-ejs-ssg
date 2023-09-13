@@ -29,7 +29,7 @@ class Page extends Layout {
       if (page.permalink) {
         page.url = page.permalink
       } else {
-        page.url = `/${page.outName}`
+        page.url = page.outName
       }
     }
     return page

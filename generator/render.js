@@ -30,7 +30,11 @@ const render = async (pages, siteData) => {
   for await (const page of pages) {
     page.body = await renderFile(page, siteData)
     if (page.permalink) {
-      await saveFile(`${page.outDir}${page.permalink}`, 'index.html', page.body)
+      await saveFile(
+        `${page.outDir}/${page.permalink}`,
+        'index.html',
+        page.body
+      )
     } else {
       await saveFile(page.outDir, page.outName, page.body)
     }
