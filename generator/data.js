@@ -44,6 +44,7 @@ const getFileData = async (path, name) => {
 
 const getDataFiles = async (srcDir = `${config.srcDir}${config.dataDir}`) => {
   const fileData = {}
+  fileData.config = (await import('./config.js')).default
   const dirEnts = await getDirents(srcDir, true)
   if (dirEnts) {
     // eslint-disable-next-line no-restricted-syntax

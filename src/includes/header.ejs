@@ -1,10 +1,10 @@
 <header class="site-header" role="banner">
   <div class="wrapper">
     <a class="site-title" rel="author" href="<%- '/' %>">
-      <img class="logo" src="/assets/favicon-32x32.png" alt="logo icon" />
+      <img class="logo" src="<%- asset('favicon-32x32.png') %>" alt="logo icon" />
       <%- site.title %>
     </a>
-    <% if (pages.length > 0) { %>
+    <% if (Object.entries(pages).length > 0) { %>
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger">
@@ -17,8 +17,8 @@
         </span>
       </label>
       <div class="trigger">
-        <%_ for (const page of pages) { _%><%_ if (page.url !== '/404.html') { _%>
-        <a class="page-link" href="<%- page.url -%>"><%- page.title %></a>
+        <%_ for (const key in pages) { _%><%_ if (!pages[key].url.includes('404.html')) { _%>
+        <a class="page-link" href="<%- pages[key].url -%>"><%- pages[key].title %></a>
         <%_ } _%><%_ } _%>
       </div>
     </nav>

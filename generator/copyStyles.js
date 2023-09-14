@@ -8,7 +8,7 @@ import config from './config.js'
 import { fileExt, getFileText, saveFile, getDirents } from './utils.js'
 
 const copyStyles = async () => {
-  let dirEnts = await getDirents(config.srcDir, false)
+  let dirEnts = await getDirents(`${config.srcDir}${config.assetsDir}`, false)
   dirEnts = dirEnts.filter((ent) => ent.isFile())
 
   if (dirEnts) {
@@ -23,8 +23,10 @@ const copyStyles = async () => {
         const plugins = [autoprefixer]
 
         if (ent.name.endsWith('.scss') || ent.name.endsWith('.sass')) {
-          const dirname = url.fileURLToPath(new URL('../', import.meta.url))
-          const loadPaths = [path.join(dirname, './src')]
+          const projectRoot = url.fileURLToPath(new URL('../', import.meta.url))
+          const loadPaths = [
+            path.join(projectRoot, `${config.srcDir}${config.assetsDir}`),
+          ]
           try {
             fileText = sass.compileString(fileText, {
               loadPaths,
@@ -42,7 +44,11 @@ const copyStyles = async () => {
         postcss(plugins)
           .process(fileText, { from: `${ent.path}/${ent.name}` })
           .then(async (result) => {
-            await saveFile(config.outDir, ent.name, result.css)
+            await saveFile(
+              `${config.outDir}${config.assetsDir}`,
+              ent.name,
+              result.css
+            )
           })
       }
     }

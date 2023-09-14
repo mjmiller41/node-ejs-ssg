@@ -19,8 +19,10 @@ const saveFile = async (path, name, data) => {
   try {
     await mkdir(path, { recursive: true })
     await writeFile(`${path}/${name}`, data)
+    return 'success'
   } catch (error) {
     if (!(error.code === 'EEXIST')) console.error(error)
+    return undefined
   }
 }
 
@@ -30,7 +32,6 @@ const getFileText = async (path, name) => {
   try {
     fileText = await readFile(url, 'utf-8')
   } catch (error) {
-    console.log(url.pathname, path, name)
     console.error(error)
   }
   return fileText

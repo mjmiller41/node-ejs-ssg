@@ -26,7 +26,7 @@ class Page extends Layout {
       page = new Page(path, name)
       page.body = await getFileText(page.srcPath, page.srcName)
       page.getFrontMatter()
-      if (page.permalink) {
+      if (page.permalink && config.usePermalinks) {
         page.url = page.permalink
       } else {
         page.url = page.outName
@@ -37,14 +37,17 @@ class Page extends Layout {
 
   static async getPages() {
     const pageDirs = [config.srcDir, `${config.srcDir}${config.pagesDir}`]
-    const pages = []
+    const pages = {}
 
     for await (const dir of pageDirs) {
       const dirEnts = await getDirents(dir, false)
       if (dirEnts) {
         for await (const ent of dirEnts) {
           const page = await Page.getPage(ent.path, ent.name)
-          if (page) pages.push(page)
+          if (page) {
+            const key = page.outName.replace('.html', '')
+            pages[key] = page
+          }
         }
       }
     }
