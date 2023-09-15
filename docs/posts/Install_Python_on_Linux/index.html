@@ -5,18 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Michael Joseph Miller &mdash; Installing Python on Linux</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
-  <link rel="stylesheet" href="assets/main.css" />
-  <script src="assets/scripts/copyCode.js" defer></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="stylesheet" href="/main.css" />
+  <script src="/assets/scripts/copyCode.js" defer></script>
 </head>
   <body>
     <header class="site-header" role="banner">
   <div class="wrapper">
     <a class="site-title" rel="author" href="/">
-      <img class="logo" src="assets/favicon-32x32.png" alt="logo icon" />
+      <img class="logo" src="/assets/favicon-32x32.png" alt="logo icon" />
       Michael Joseph Miller
     </a>
     
@@ -32,10 +32,10 @@
         </span>
       </label>
       <div class="trigger">
-        <a class="page-link" href="index.html">Home</a>
-        <a class="page-link" href="about.html">About</a>
-        <a class="page-link" href="blog.html">Blog</a>
-        <a class="page-link" href="projects.html">Projects</a>
+        <a class="page-link" href="/index.html">Home</a>
+        <a class="page-link" href="/about">About</a>
+        <a class="page-link" href="/blog">Blog</a>
+        <a class="page-link" href="/projects">Projects</a>
       </div>
     </nav>
     
@@ -52,61 +52,40 @@
     </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">Python is a popular, high-level programming language known for its simplicity, readability, and versatility. This tutorial will guide you through the process of installing Python on a Linux system.
-
-## Requirements
-
-Before you begin, make sure you have the following:
-
-- A Linux system (such as Ubuntu, Fedora, or CentOS)
-- Access to the command line (also known as terminal)
-- Administrator or root privileges
-- An internet connection
-
-## Install Python using Package Manager
-
-The easiest and recommended way to install Python on a Linux system is through the package manager. Depending on the Linux distribution you are using, the package manager may be `apt` (Ubuntu and Debian), `yum` (Fedora and CentOS), or `pacman` (Arch Linux).
-
-To install Python using `apt`, open the terminal and enter the following commands:
-
-```bash
-sudo apt update
+  <div class="post-content e-content" itemprop="articleBody"><p>Python is a popular, high-level programming language known for its simplicity, readability, and versatility. This tutorial will guide you through the process of installing Python on a Linux system.</p>
+<h2>Requirements</h2>
+<p>Before you begin, make sure you have the following:</p>
+<ul>
+<li>A Linux system (such as Ubuntu, Fedora, or CentOS)</li>
+<li>Access to the command line (also known as terminal)</li>
+<li>Administrator or root privileges</li>
+<li>An internet connection</li>
+</ul>
+<h2>Install Python using Package Manager</h2>
+<p>The easiest and recommended way to install Python on a Linux system is through the package manager. Depending on the Linux distribution you are using, the package manager may be <code>apt</code> (Ubuntu and Debian), <code>yum</code> (Fedora and CentOS), or <code>pacman</code> (Arch Linux).</p>
+<p>To install Python using <code>apt</code>, open the terminal and enter the following commands:</p>
+<pre><code class="language-bash">sudo apt update
 sudo apt install python3
-```
-
-To install Python using `yum`, enter the following commands:
-
-```bash
-sudo yum update
+</code></pre>
+<p>To install Python using <code>yum</code>, enter the following commands:</p>
+<pre><code class="language-bash">sudo yum update
 sudo yum install python3
-```
-
-To install Python using `pacman`, enter the following commands:
-
-```bash
-sudo pacman -Sy
+</code></pre>
+<p>To install Python using <code>pacman</code>, enter the following commands:</p>
+<pre><code class="language-bash">sudo pacman -Sy
 sudo pacman -S python
-```
+</code></pre>
+<h2>Verify the Installation</h2>
+<p>To verify that Python has been installed correctly, open the terminal and enter the following command:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p>You should see output indicating the version of Python that is installed, similar to the following:</p>
+<pre><code class="language-bash">Python 3.11.2
+</code></pre>
+<h2>Conclusion</h2>
+<p>You have successfully installed Python on your Linux system! You can now use Python for your development needs. To learn more about how to use Python, consider checking out the official Python documentation or enrolling in a Python course.</p></div>
 
-## Verify the Installation
-
-To verify that Python has been installed correctly, open the terminal and enter the following command:
-
-```bash
-python3 --version
-```
-
-You should see output indicating the version of Python that is installed, similar to the following:
-
-```bash
-Python 3.11.2
-```
-
-## Conclusion
-
-You have successfully installed Python on your Linux system! You can now use Python for your development needs. To learn more about how to use Python, consider checking out the official Python documentation or enrolling in a Python course.</div>
-
-  <a class="u-url" hidden href="posts/install_python_linux.html"></a>
+  <a class="u-url" hidden href="/posts/Install_Python_on_Linux"></a>
 </div></main>
     <footer class="site-footer">
   <data class="u-url" href="/"></data>

@@ -7,7 +7,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run build && node app.js",
     "dev": "NODE_ENV=development nodemon devServer.js",
     "inspect": "NODE_ENV=development --inspect nodemon devServer.js",
     "lint": "eslint ./",

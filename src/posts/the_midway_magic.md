@@ -4,6 +4,7 @@ title: 'The Midway Magic'
 description: 'My experience of riding out a typhoon at sea.'
 date: '2022-07-15'
 categories: Essays
+permalink: Midway_Magic
 ---
 
 <figure class='quotation'>

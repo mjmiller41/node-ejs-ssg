@@ -4,6 +4,7 @@ title: 'Javascript Closures'
 description: 'What are Javascript Closures?'
 date: '2023-02-13'
 categories: Javascript
+permalink: Javascript_closures
 ---
 
 Closures are an essential concept in JavaScript that can make the code easier to understand and maintain. They allow functions to have a private scope and access to variables within the scope. This tutorial will explain the basics of closures, why they are useful, and how to use them in your code.

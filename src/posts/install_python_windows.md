@@ -4,6 +4,7 @@ title: 'Installing Python on Windows'
 description:
 date: '2023-02-12'
 categories: Python
+permalink: Install_python_on_Windows
 ---
 
 Python is a popular, high-level programming language known for its simplicity, readability, and versatility. This tutorial will guide you through the process of installing Python on Windows.

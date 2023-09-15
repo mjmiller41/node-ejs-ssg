@@ -4,6 +4,7 @@ title: 'Protecting Yourself from Identity Theft'
 description: 'The dangers of identity theft and what you can do about it.'
 date: '2023-03-26'
 categories: Essays
+permalink: protecting_from_id_theft
 ---
 
 <style>

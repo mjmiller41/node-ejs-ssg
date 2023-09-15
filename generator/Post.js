@@ -1,7 +1,10 @@
 /* eslint-disable no-restricted-syntax */
+import { Marked } from 'marked'
 import config from './config.js'
 import Page from './Page.js'
 import { getDirents, getFileText } from './utils.js'
+
+const marked = new Marked()
 
 class Post extends Page {
   categories
@@ -25,11 +28,12 @@ class Post extends Page {
       post = new Post(path, name)
       post.body = await getFileText(post.srcPath, post.srcName)
       post.getFrontMatter()
+      post.body = marked.parse(post.body)
       post.getCategories()
-      if (post.frontMatter && post.frontMatter.permalink) {
-        post.url = `posts/${post.frontMatter.permalink}`
+      if (post && post.permalink) {
+        post.url = `/posts/${post.permalink}`
       } else {
-        post.url = `posts/${post.outName}`
+        post.url = `/posts/${post.outName}`
       }
     }
     return post

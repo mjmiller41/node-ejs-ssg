@@ -1,5 +1,3 @@
-import config from './config.js'
-
 const longDate = (date) => {
   const options = {
     weekday: 'long',
@@ -39,12 +37,4 @@ const sort = (collection, field = '', direction = 'ascending') => {
   return collection
 }
 
-const asset = (pathname) => {
-  let pName = pathname
-  if (config.assetsDir) pName = `${config.assetsDir}/${pName}`
-  if (config.absoluteHrefs && pName[0] !== '/') pName = `/${pName}`
-  if (!config.absoluteHrefs && pName[0] === '/') pName = pName.replace('/', '')
-  return pName
-}
-
-export default { longDate, limit, sort, asset }
+export default { longDate, limit, sort }

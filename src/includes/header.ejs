@@ -1,7 +1,7 @@
 <header class="site-header" role="banner">
   <div class="wrapper">
     <a class="site-title" rel="author" href="<%- '/' %>">
-      <img class="logo" src="<%- asset('favicon-32x32.png') %>" alt="logo icon" />
+      <img class="logo" src="/assets/favicon-32x32.png" alt="logo icon" />
       <%- site.title %>
     </a>
     <% if (Object.entries(pages).length > 0) { %>
@@ -18,8 +18,8 @@
       </label>
       <div class="trigger">
         <%_ for (const key in pages) { _%><%_ if (!pages[key].url.includes('404.html')) { _%>
-        <a class="page-link" href="<%- pages[key].url -%>"><%- pages[key].title %></a>
-        <%_ } _%><%_ } _%>
+        <a class="page-link" href="/<%- pages[key].url -%>"><%- pages[key].title %></a>
+        <%_ }} _%>
       </div>
     </nav>
     <% } %>

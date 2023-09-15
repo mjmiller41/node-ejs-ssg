@@ -10,6 +10,5 @@ export default {
   stylesDir: '/sass',
   layoutDir: '/layouts',
   // Render Settings
-  usePermalinks: false,
-  absoluteHrefs: false, // Set to true to use absolute href and src html attributes, or false for relative
+  usePermalinks: true,
 }
